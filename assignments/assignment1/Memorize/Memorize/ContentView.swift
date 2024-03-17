@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var emojis = ["👻","🎃","🕷️","😈","💀","🕸️","🧙","🙀","👹","😱","☠️","🍭","👻","🎃","🕷️","😈","💀","🕸️","🧙","🙀","👹","😱","☠️","🍭"].shuffled()
     @State var cardCount: Int = 24
+    @State var themeColor = Color.orange
     
     var body: some View {
         VStack {
@@ -30,20 +31,25 @@ struct ContentView: View {
     var themeChosing : some View {
         HStack(alignment: .bottom) {
             Spacer()
-            themeButton(image: "theatermasks", themeTitle: "Halloween", emojis: ["👻","🎃","🕷️","😈","💀","🕸️","🧙","🙀","👹","😱","☠️","🍭"])
+            themeButton(image: "theatermasks", themeTitle: "Halloween", themeColor: .orange, emojis: ["👻","🎃","🕷️","😈","💀","🕸️","🧙","🙀","👹","😱","☠️","🍭"])
             Spacer()
-            themeButton(image: "figure.badminton", themeTitle: "Sports", emojis: ["🚲", "🏀", "🏸", "⛹️‍♀️", "🎾", "🏓", "🏑", "⚾️", "🏈", "🏊‍♀️", "🏄🏿‍♀️", "🚵"])
+            themeButton(image: "figure.badminton", themeTitle: "Sports", themeColor: .red, emojis: ["🚲", "🏀", "🏸", "⛹️‍♀️", "🎾", "🏓", "🏑", "⚾️", "🏈", "🏊‍♀️", "🏄🏿‍♀️", "🚵"])
             Spacer()
-            themeButton(image: "car", themeTitle: "Vehicle", emojis: ["🚗", "🚖", "⛴️", "🚁", "🚚", "🚂", "🚀", "🚌", "🚑", "🚔", "🚜", "🚄"])
+            themeButton(image: "car", themeTitle: "Vehicle", themeColor: .blue, emojis: ["🚗", "🚖", "⛴️", "🚁", "🚚", "🚂", "🚀", "🚌", "🚑", "🚔", "🚜", "🚄"])
             Spacer()
         }
         .imageScale(.large)
         .font(.largeTitle)
     }
     
-    func themeButton(image: String, themeTitle: String, emojis: [String]) -> some View {
+    func themeButton(image: String, themeTitle: String, themeColor: Color, emojis: [String]) -> some View {
         Button(action: {
-            self.emojis = (emojis + emojis).shuffled()
+            
+            let pairOfCards = Int.random(in: 2...12)
+            self.cardCount = pairOfCards * 2
+            
+            self.emojis = (emojis[..<pairOfCards] + emojis[..<pairOfCards]).shuffled()
+            self.themeColor = themeColor
             
         }, label: {
             
@@ -57,14 +63,19 @@ struct ContentView: View {
     
     
     var cards: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum:60))]){
+        LazyVGrid(columns: [GridItem(.adaptive(minimum:adaptiveSize))]){
             ForEach(0..<cardCount, id:\.self) { index in
                 CardView(content: emojis[index])
                     .aspectRatio(2/3, contentMode: .fit)
             }
         }
-        .foregroundColor(.orange)
+        .foregroundColor(self.themeColor)
     }
+    
+    var adaptiveSize: CGFloat {
+        CGFloat(120 - (self.cardCount - 4) * 3)
+    }
+    
     
     var cardCountAdjusters: some View {
         HStack {
@@ -100,7 +111,7 @@ struct ContentView: View {
 
 struct CardView: View {
     let content: String
-    @State var isFaceUp: Bool = false
+    @State var isFaceUp: Bool = true
     
     var body: some View {
         ZStack {
