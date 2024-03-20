@@ -9,4 +9,5 @@ see more about the codes, demos:
 - [Assignment 2](https://github.com/Renyqin/Stanford-CS193P-2023/tree/main/assignments/assignment2)
 - [Assignment 3](https://github.com/Renyqin/Stanford-CS193P-2023/tree/main/assignments/assignment3)
 - [Assignment 4](https://github.com/Renyqin/Stanford-CS193P-2023/tree/main/assignments/assignment4)
+- [Assignment 5](https://github.com/Renyqin/Stanford-CS193P-2023/tree/main/assignments/assignment5)
 - Other assignments coming soon.. 
