@@ -16,7 +16,7 @@ struct ThemeChooserView: View {
         NavigationView {
             List {
                 ForEach(themeChooser.themes) { theme in 
-                    NavigationLink(destination: EmojiMemoryGameView(viewModel: EmojiMemoryGame())){
+                    NavigationLink(destination: EmojiMemoryGameView(viewModel: EmojiMemoryGame(themeID: theme.id, themeChooser: themeChooser), themeID: theme.id)){
                         themeView(theme)
                     }
                     

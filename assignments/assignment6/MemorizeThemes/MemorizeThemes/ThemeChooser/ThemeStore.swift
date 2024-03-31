@@ -67,7 +67,7 @@ struct ThemeStore {
         var emojis: [String]
         let nPairs: Int
         let Color: Color
-        var id = UUID()
+        let id = UUID()
     
         
     }

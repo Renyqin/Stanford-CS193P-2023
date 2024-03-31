@@ -11,10 +11,11 @@ class EmojiMemoryGame: ObservableObject {
     @Published private var model: MemoryGame<String>
     private(set) var theme: ThemeStore.Theme
     private static var numberOfPairOfCards = 8
+    var themeChooser: ThemeChooser
     
-    init(){
-        let randomNumber = Int.random(in: 0...5)
-        theme = ThemeStore().choseTheme(themeId: randomNumber, nPairs: EmojiMemoryGame.numberOfPairOfCards)
+    init(themeID: UUID, themeChooser: ThemeChooser){
+        self.themeChooser = themeChooser
+        theme = self.themeChooser.choseTheme(by: themeID)
         model = EmojiMemoryGame.createMemoryGame(theme: theme)
         model.shuffle()
     }
@@ -35,9 +36,8 @@ class EmojiMemoryGame: ObservableObject {
     }
     
     
-    func newGame(){
-        let randomNumber = Int.random(in: 0...5)
-        theme = ThemeStore().choseTheme(themeId: randomNumber, nPairs: EmojiMemoryGame.numberOfPairOfCards)
+    func newGame(themeID: UUID){
+        theme = themeChooser.choseTheme(by: themeID)
         model = EmojiMemoryGame.createMemoryGame(theme: theme)
         model.shuffle()
     }
