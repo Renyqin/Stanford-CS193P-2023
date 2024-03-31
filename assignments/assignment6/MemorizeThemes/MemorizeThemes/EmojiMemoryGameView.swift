@@ -14,7 +14,7 @@ struct EmojiMemoryGameView: View {
     var body: some View {
         VStack {
 //            Text(viewModel.theme.name)
-//                .font(.largeTitle)
+//                .font(.title)
             ScrollView{
                 cards
                     .animation(.default, value: viewModel.cards)
@@ -39,6 +39,9 @@ struct EmojiMemoryGameView: View {
             
         }
         .padding()
+        .navigationTitle(viewModel.theme.name)
+        .frame(maxWidth: .infinity)
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     var cards: some View {
