@@ -13,26 +13,25 @@ struct ThemeChooserView: View {
     
     var body: some View {
         
-        List {
-            ForEach(themeChooser.themes) { theme in 
-                NavigationLink(value:theme.id){
-                    themeView(theme)
+        NavigationView {
+            List {
+                ForEach(themeChooser.themes) { theme in 
+                    NavigationLink(destination: EmojiMemoryGameView(viewModel: EmojiMemoryGame())){
+                        themeView(theme)
+                    }
+                    
                 }
                 
-            }
-            
-            
-        }
-        .navigationDestination(for: Theme.ID.self) { themeID in 
-            
-        }
-        .navigationTitle("Themes")
-        .toolbar {
-            Button {
                 
-            } label: {
-                Image(systemName: "plus")
             }
+            .navigationTitle("Themes")
+            .toolbar {
+                Button {
+                    
+                } label: {
+                    Image(systemName: "plus")
+                }
+        }
         }
             
     }
@@ -42,7 +41,7 @@ struct ThemeChooserView: View {
             Text(theme.name)
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .foregroundColor(theme.Color)
-            Text("\(theme.nPairs) pairs from \(theme.emojis[..<7].joined())...")
+            Text("\(theme.nPairs) pairs from \(theme.emojis.joined())").lineLimit(1)
         }
     }
 }
