@@ -37,10 +37,10 @@ struct ThemeStore {
     struct Theme: Identifiable {
         
         
-        let name: String
+        var name: String
         var emojis: [String]
-        let nPairs: Int
-        let Color: Color
+        var nPairs: Int
+        var Color: Color
         let id = UUID()
     
         
