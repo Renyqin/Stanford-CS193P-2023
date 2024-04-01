@@ -39,7 +39,7 @@ struct ThemeChooserView: View {
             Text(theme.name)
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .foregroundColor(theme.Color)
-            Text("\(theme.nPairs) pairs from \(theme.emojis.joined())").lineLimit(1)
+            Text("\(theme.nPairs) pairs from \(theme.emojis)").lineLimit(1)
         }
     }
 }

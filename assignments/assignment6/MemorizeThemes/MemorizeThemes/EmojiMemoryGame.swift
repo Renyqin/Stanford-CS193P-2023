@@ -23,8 +23,8 @@ class EmojiMemoryGame: ObservableObject {
     private static func createMemoryGame(theme: ThemeStore.Theme) -> MemoryGame<String> {
    
         return MemoryGame(numberOfPairsOfCards:  numberOfPairOfCards) { pairIndex in
-            if theme.emojis.indices.contains(pairIndex) {
-                return theme.emojis[pairIndex]
+            if theme.emojis.count > pairIndex {
+                return String(theme.emojis[theme.emojis.index(theme.emojis.startIndex, offsetBy: pairIndex)])
             } else {
                 return "⁉️"
             }

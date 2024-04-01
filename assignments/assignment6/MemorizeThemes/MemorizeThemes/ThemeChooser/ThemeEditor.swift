@@ -26,8 +26,9 @@ struct ThemeEditor: View {
                     .onChange(of: emojisToAdd, initial: true) { old, new  in
                         if new != old {
                             
-                            theme.emojis.append(new)
-                            theme.emojis = theme.emojis.uniqueElements().filter { $0.isEmoji }
+                            theme.emojis  = (new + theme.emojis)
+                                    .filter { $0.isEmoji }
+                                    .uniqued
                         }
                         
                         
@@ -41,11 +42,11 @@ struct ThemeEditor: View {
         VStack(alignment: .trailing) {
             Text("Tap to Remove Emojis").font(.caption).foregroundColor(.gray)
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 25))]) {
-                ForEach(theme.emojis.uniqueElements(), id: \.self) { emoji in
+                ForEach(theme.emojis.uniqued.map(String.init), id: \.self) { emoji in
                     Text(emoji)
                         .onTapGesture {
-                            if let index = theme.emojis.firstIndex(of: emoji) {
-                                theme.emojis.remove(at: index)
+                                theme.emojis.remove(emoji.first!)
+                                emojisToAdd.remove(emoji.first!)
                             }
                         }
                     
@@ -56,12 +57,12 @@ struct ThemeEditor: View {
     }
     
     
-}
+
 
 
 struct ThemeEditor_Previews: PreviewProvider {
     struct Preview: View {
-        @State private var theme = ThemeStore.Theme(name: "123", emojis: ["🚲", "🏀", "🏸", "⛹️‍♀️", "🎾", "🏓", "🏑", "⚾️", "🏈", "🏊‍♀️", "🏄🏿‍♀️", "🚵"], nPairs: 3, Color: .black)
+        @State private var theme = ThemeStore.Theme(name: "123", emojis: "🚲🏀🏸⛹️‍♀️🎾🏓🏑⚾️🏈🏊‍♀️🏄🏿‍♀️🚵", nPairs: 3, Color: .black)
         var body: some View {
             ThemeEditor(theme: $theme)
         }
