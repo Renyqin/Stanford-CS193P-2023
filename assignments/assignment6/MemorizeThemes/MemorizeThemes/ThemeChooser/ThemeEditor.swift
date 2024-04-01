@@ -40,15 +40,18 @@ struct ThemeEditor: View {
     
     var removeEmojis: some View {
         VStack(alignment: .trailing) {
-            Text("Tap to Remove Emojis").font(.caption).foregroundColor(.gray)
+            Text("Tap to Remove Emojis, you must keep at least two Emojis ").font(.caption).foregroundColor(.gray)
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 25))]) {
                 ForEach(theme.emojis.uniqued.map(String.init), id: \.self) { emoji in
                     Text(emoji)
                         .onTapGesture {
+                            if theme.emojis.count > 2 {
                                 theme.emojis.remove(emoji.first!)
                                 emojisToAdd.remove(emoji.first!)
                             }
+                                
                         }
+                    }
                     
                     
                 }

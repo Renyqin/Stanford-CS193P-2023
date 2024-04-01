@@ -16,8 +16,8 @@ class ThemeChooser: ObservableObject {
         self.themes = ThemeStore.builtins
     }
     
-    func insert(){
-        
+    func append(theme: Theme){
+        themes.append(theme)
     }
     
     

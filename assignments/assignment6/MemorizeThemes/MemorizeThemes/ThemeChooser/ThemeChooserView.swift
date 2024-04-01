@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ThemeChooserView: View {
-    @ObservedObject var themeChooser: ThemeChooser
     typealias Theme = ThemeStore.Theme
+    @ObservedObject var themeChooser: ThemeChooser
+    @State private var showCursorTheme = false
+    @State private var emptyTheme = Theme(name: "", emojis: "🍶🍲", nPairs: 2, Color: .black)
     
     var body: some View {
         
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(themeChooser.themes) { theme in 
                     NavigationLink(destination: EmojiMemoryGameView(viewModel: EmojiMemoryGame(themeID: theme.id, themeChooser: themeChooser), themeID: theme.id)){
@@ -22,10 +24,14 @@ struct ThemeChooserView: View {
                     }
                 }
             }
+            .navigationDestination(isPresented: $showCursorTheme){
+                ThemeEditor(theme: $emptyTheme)
+            }
             .navigationTitle("Themes")
             .toolbar {
                 Button {
-                    
+                    showCursorTheme = true
+                    themeChooser.append(theme: emptyTheme)
                 } label: {
                     Image(systemName: "plus")
                 }
