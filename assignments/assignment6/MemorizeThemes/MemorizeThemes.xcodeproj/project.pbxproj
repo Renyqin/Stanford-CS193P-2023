@@ -16,6 +16,7 @@
 		DE844FD92BB9519800DAE8E2 /* ThemeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE844FD72BB9519800DAE8E2 /* ThemeStore.swift */; };
 		DE844FDB2BB951B900DAE8E2 /* ThemeChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE844FDA2BB951B900DAE8E2 /* ThemeChooser.swift */; };
 		DE844FDD2BB951CF00DAE8E2 /* ThemeChooserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE844FDC2BB951CF00DAE8E2 /* ThemeChooserView.swift */; };
+		DE844FE02BB9CC1800DAE8E2 /* ThemeEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE844FDF2BB9CC1800DAE8E2 /* ThemeEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		DE844FD72BB9519800DAE8E2 /* ThemeStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeStore.swift; sourceTree = "<group>"; };
 		DE844FDA2BB951B900DAE8E2 /* ThemeChooser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeChooser.swift; sourceTree = "<group>"; };
 		DE844FDC2BB951CF00DAE8E2 /* ThemeChooserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeChooserView.swift; sourceTree = "<group>"; };
+		DE844FDF2BB9CC1800DAE8E2 /* ThemeEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				DE844FD72BB9519800DAE8E2 /* ThemeStore.swift */,
 				DE844FDC2BB951CF00DAE8E2 /* ThemeChooserView.swift */,
 				DE844FDA2BB951B900DAE8E2 /* ThemeChooser.swift */,
+				DE844FDF2BB9CC1800DAE8E2 /* ThemeEditor.swift */,
 			);
 			path = ThemeChooser;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 				DE844FDB2BB951B900DAE8E2 /* ThemeChooser.swift in Sources */,
 				DE844FD92BB9519800DAE8E2 /* ThemeStore.swift in Sources */,
 				DE844FCD2BB854CD00DAE8E2 /* MemoryGame.swift in Sources */,
+				DE844FE02BB9CC1800DAE8E2 /* ThemeEditor.swift in Sources */,
 				DE844FCC2BB854CD00DAE8E2 /* EmojiMemoryGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,12 +17,10 @@ struct ThemeChooserView: View {
             List {
                 ForEach(themeChooser.themes) { theme in 
                     NavigationLink(destination: EmojiMemoryGameView(viewModel: EmojiMemoryGame(themeID: theme.id, themeChooser: themeChooser), themeID: theme.id)){
+                        
                         themeView(theme)
                     }
-                    
                 }
-                
-                
             }
             .navigationTitle("Themes")
             .toolbar {

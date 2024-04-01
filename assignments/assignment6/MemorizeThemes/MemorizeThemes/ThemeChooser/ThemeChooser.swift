@@ -16,6 +16,10 @@ class ThemeChooser: ObservableObject {
         self.themes = ThemeStore.builtins
     }
     
+    func insert(){
+        
+    }
+    
     
 
     func choseTheme(by themeId: UUID) -> Theme {
