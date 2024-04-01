@@ -21,12 +21,41 @@ struct ThemeEditor: View {
                 }
             }
             Section(header: Text("Emojis")){
-                Text("\(theme.emojis.joined())")
-                TextField("New emojis", text: $emojisToAdd)
+                removeEmojis
+                TextField("Add emojis here", text: $emojisToAdd)
+                    .onChange(of: emojisToAdd, initial: true) { old, new  in
+                        if new != old {
+                            
+                            theme.emojis.append(new)
+                            theme.emojis = theme.emojis.uniqueElements().filter { $0.isEmoji }
+                        }
+                        
+                        
+                    }
                 Stepper("\(theme.nPairs)", value: $theme.nPairs, in: 2...theme.emojis.count)
             }
         }
     }
+    
+    var removeEmojis: some View {
+        VStack(alignment: .trailing) {
+            Text("Tap to Remove Emojis").font(.caption).foregroundColor(.gray)
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 25))]) {
+                ForEach(theme.emojis.uniqueElements(), id: \.self) { emoji in
+                    Text(emoji)
+                        .onTapGesture {
+                            if let index = theme.emojis.firstIndex(of: emoji) {
+                                theme.emojis.remove(at: index)
+                            }
+                        }
+                    
+                    
+                }
+            }
+        }
+    }
+    
+    
 }
 
 
