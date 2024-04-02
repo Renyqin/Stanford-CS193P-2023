@@ -62,11 +62,12 @@ struct ThemeChooserView: View {
     }
     
     func themeView(_ theme: Theme) -> some View {
-        VStack(alignment: .leading){
+        let allPair = theme.emojis.count == theme.nPairs
+        return VStack(alignment: .leading){
             Text(theme.name)
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .foregroundColor(theme.Color)
-            Text("\(theme.nPairs) pairs from \(theme.emojis)").lineLimit(1)
+            Text(allPair ? "All of \(theme.emojis)" : "\(theme.nPairs) pairs from \(theme.emojis)")
         }
     }
 }
