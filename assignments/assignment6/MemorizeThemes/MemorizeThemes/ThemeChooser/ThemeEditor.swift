@@ -10,11 +10,6 @@ import SwiftUI
 struct ThemeEditor: View {
     @Binding var theme: ThemeStore.Theme
     @State private var emojisToAdd: String = ""
-//    @State private var newColor = Color(rgba: theme.color)
-    
-//    init(theme: Binding<ThemeStore.Theme>) {
-//        self.newColor = Color(rgba: $theme.Color)
-//    }
     
     var body: some View {
         Form {
@@ -22,7 +17,14 @@ struct ThemeEditor: View {
                 HStack {
                     TextField("Name", text: $theme.name)
                         .foregroundColor(Color(rgba: theme.color))
-//                    ColorPicker("", selection: $newColor)
+                    ColorPicker("", selection: Binding(
+                        get: {
+                            Color(rgba: theme.color)
+                        }, set: { newColor in
+                            theme.color = RGBA(color: newColor)
+                        }
+                    
+                    ))
                 }
             }
             Section(header: Text("Emojis")){
