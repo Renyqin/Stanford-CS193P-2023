@@ -7,9 +7,27 @@
 
 import Foundation
 
+
+//extension UserDefaults {
+//    func theme(forKey key: String) -> [ThemeStore.Theme] {
+//        if let jsonData = data(forKey: key),
+//           let decodedPalettes = try? JSONDecoder().decode([ThemeStore.Theme].self, from: jsonData) {
+//            return decodedPalettes
+//        } else {
+//            return []
+//        }
+//    }
+//    func set(_ themes: [ThemeStore.Theme], forKey key: String) {
+//        let data = try? JSONEncoder().encode(themes)
+//        set(data, forKey: key)
+//    }
+//}
+
 class ThemeChooser: ObservableObject {
     typealias Theme = ThemeStore.Theme
     private(set) var themeStore = ThemeStore()
+    
+    
     var themes : [Theme]
     
     init() {

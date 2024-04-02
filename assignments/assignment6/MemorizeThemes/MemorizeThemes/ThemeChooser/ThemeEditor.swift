@@ -10,14 +10,19 @@ import SwiftUI
 struct ThemeEditor: View {
     @Binding var theme: ThemeStore.Theme
     @State private var emojisToAdd: String = ""
+//    @State private var newColor = Color(rgba: theme.color)
+    
+//    init(theme: Binding<ThemeStore.Theme>) {
+//        self.newColor = Color(rgba: $theme.Color)
+//    }
     
     var body: some View {
         Form {
             Section(header: Text("Name")){
                 HStack {
                     TextField("Name", text: $theme.name)
-                        .foregroundColor(theme.Color)
-                    ColorPicker("", selection: $theme.Color)
+                        .foregroundColor(Color(rgba: theme.color))
+//                    ColorPicker("", selection: $newColor)
                 }
             }
             Section(header: Text("Emojis")){
@@ -49,11 +54,8 @@ struct ThemeEditor: View {
                                 theme.emojis.remove(emoji.first!)
                                 emojisToAdd.remove(emoji.first!)
                             }
-                                
                         }
                     }
-                    
-                    
                 }
             }
         }
@@ -65,7 +67,7 @@ struct ThemeEditor: View {
 
 struct ThemeEditor_Previews: PreviewProvider {
     struct Preview: View {
-        @State private var theme = ThemeStore.Theme(name: "123", emojis: "🚲🏀🏸⛹️‍♀️🎾🏓🏑⚾️🏈🏊‍♀️🏄🏿‍♀️🚵", nPairs: 3, Color: .black)
+        @State private var theme = ThemeStore.Theme(name: "123", emojis: "🚲🏀🏸⛹️‍♀️🎾🏓🏑⚾️🏈🏊‍♀️🏄🏿‍♀️🚵", nPairs: 3, color: RGBA(color: .black))
         var body: some View {
             ThemeEditor(theme: $theme)
         }

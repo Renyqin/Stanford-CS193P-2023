@@ -16,30 +16,30 @@ struct ThemeStore {
     
     static var builtins:[Theme] {[
         Theme(name: "Halloween", emojis:"👻🎃🕷️😈💀🕸️🧙🙀👹😱☠️🍭".shuffled(),
-                             nPairs: nPairs, Color: .orange),
+              nPairs: nPairs, color: RGBA(color: .orange)),
         Theme(name: "Vehicle", emojis:"🚗🚖⛴️🚁🚚🚂🚀🚌🚑🚔🚜🚄".shuffled(),
-                             nPairs: nPairs, Color: .blue),
-        Theme(name: "Drink", emojis:"🥂🍵🥛🧋🍻🍾🧃🫖🍶🥃🥤🍹".shuffled(),
-                                     nPairs: nPairs, Color: .pink),
-        Theme(name: "Food", emojis:"🍔🌽🌯🌭🌮🍕🍗🍟🥐🍛🍱🍲".shuffled(),
-                     nPairs: nPairs, Color: .yellow),
-        Theme(name: "Wearing", emojis:"🥼👠👙👗👢🧥👖🥾🧣👔👚🩳".shuffled(),
-                     nPairs: nPairs, Color: .green),
-        Theme(name: "Sports", emojis:"🚲🏀🏸⛹️‍♀️🎾🏓🏑⚾️🏈🏊‍♀️🏄🏿‍♀️🚵".shuffled(),
-                     nPairs: nPairs, Color: .red)
+              nPairs: nPairs, color: RGBA(color: .blue))
+//        Theme(name: "Drink", emojis:"🥂🍵🥛🧋🍻🍾🧃🫖🍶🥃🥤🍹".shuffled(),
+//                                     nPairs: nPairs, Color: .pink),
+//        Theme(name: "Food", emojis:"🍔🌽🌯🌭🌮🍕🍗🍟🥐🍛🍱🍲".shuffled(),
+//                     nPairs: nPairs, Color: .yellow),
+//        Theme(name: "Wearing", emojis:"🥼👠👙👗👢🧥👖🥾🧣👔👚🩳".shuffled(),
+//                     nPairs: nPairs, Color: .green),
+//        Theme(name: "Sports", emojis:"🚲🏀🏸⛹️‍♀️🎾🏓🏑⚾️🏈🏊‍♀️🏄🏿‍♀️🚵".shuffled(),
+//                     nPairs: nPairs, Color: .red)
     ]}
     
 
     
     
-    struct Theme: Identifiable {
+    struct Theme: Identifiable, Hashable, Codable {
         
         
         var name: String
         var emojis: String
         var nPairs: Int
-        var Color: Color
-        let id = UUID()
+        var color: RGBA
+        var id = UUID()
     
         
     }

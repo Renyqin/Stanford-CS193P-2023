@@ -12,7 +12,7 @@ struct ThemeChooserView: View {
     @ObservedObject var themeChooser: ThemeChooser
     @State private var showEmptyTheme = false
     @State private var selectedTheme: Theme?
-    @State private var emptyTheme = Theme(name: "", emojis: "🍶🍲", nPairs: 2, Color: .black)
+    @State private var emptyTheme = Theme(name: "", emojis: "🍶🍲", nPairs: 2, color: RGBA(color: .black))
     
     var body: some View {
         
@@ -66,7 +66,7 @@ struct ThemeChooserView: View {
         return VStack(alignment: .leading){
             Text(theme.name)
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                .foregroundColor(theme.Color)
+                .foregroundColor(Color(rgba: theme.color))
             Text(allPair ? "All of \(theme.emojis)" : "\(theme.nPairs) pairs from \(theme.emojis)")
         }
     }

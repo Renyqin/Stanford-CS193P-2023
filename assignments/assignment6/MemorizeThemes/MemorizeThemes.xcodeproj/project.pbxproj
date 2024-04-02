@@ -17,7 +17,8 @@
 		DE844FDB2BB951B900DAE8E2 /* ThemeChooser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE844FDA2BB951B900DAE8E2 /* ThemeChooser.swift */; };
 		DE844FDD2BB951CF00DAE8E2 /* ThemeChooserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE844FDC2BB951CF00DAE8E2 /* ThemeChooserView.swift */; };
 		DE844FE02BB9CC1800DAE8E2 /* ThemeEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE844FDF2BB9CC1800DAE8E2 /* ThemeEditor.swift */; };
-		DE844FE22BBAA0B600DAE8E2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE844FE12BBAA0B600DAE8E2 /* Extensions.swift */; };
+		DE844FE82BBC26CD00DAE8E2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE844FE72BBC26CD00DAE8E2 /* Extensions.swift */; };
+		DE844FEA2BBC26E000DAE8E2 /* RGBA.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE844FE92BBC26E000DAE8E2 /* RGBA.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +33,8 @@
 		DE844FDA2BB951B900DAE8E2 /* ThemeChooser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeChooser.swift; sourceTree = "<group>"; };
 		DE844FDC2BB951CF00DAE8E2 /* ThemeChooserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeChooserView.swift; sourceTree = "<group>"; };
 		DE844FDF2BB9CC1800DAE8E2 /* ThemeEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeEditor.swift; sourceTree = "<group>"; };
-		DE844FE12BBAA0B600DAE8E2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DE844FE72BBC26CD00DAE8E2 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		DE844FE92BBC26E000DAE8E2 /* RGBA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBA.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +69,11 @@
 			children = (
 				DE844FD82BB9519800DAE8E2 /* ThemeChooser */,
 				DE844FB92BB8547E00DAE8E2 /* MemorizeThemesApp.swift */,
+				DE844FE72BBC26CD00DAE8E2 /* Extensions.swift */,
 				DE844FC72BB854CD00DAE8E2 /* EmojiMemoryGame.swift */,
 				DE844FC92BB854CD00DAE8E2 /* EmojiMemoryGameView.swift */,
 				DE844FC82BB854CD00DAE8E2 /* MemoryGame.swift */,
+				DE844FE92BBC26E000DAE8E2 /* RGBA.swift */,
 				DE844FBD2BB8547F00DAE8E2 /* Assets.xcassets */,
 				DE844FBF2BB8547F00DAE8E2 /* Preview Content */,
 			);
@@ -91,7 +95,6 @@
 				DE844FDC2BB951CF00DAE8E2 /* ThemeChooserView.swift */,
 				DE844FDA2BB951B900DAE8E2 /* ThemeChooser.swift */,
 				DE844FDF2BB9CC1800DAE8E2 /* ThemeEditor.swift */,
-				DE844FE12BBAA0B600DAE8E2 /* Extensions.swift */,
 			);
 			path = ThemeChooser;
 			sourceTree = "<group>";
@@ -167,10 +170,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE844FBA2BB8547E00DAE8E2 /* MemorizeThemesApp.swift in Sources */,
-				DE844FE22BBAA0B600DAE8E2 /* Extensions.swift in Sources */,
+				DE844FEA2BBC26E000DAE8E2 /* RGBA.swift in Sources */,
 				DE844FCE2BB854CD00DAE8E2 /* EmojiMemoryGameView.swift in Sources */,
 				DE844FDD2BB951CF00DAE8E2 /* ThemeChooserView.swift in Sources */,
 				DE844FDB2BB951B900DAE8E2 /* ThemeChooser.swift in Sources */,
+				DE844FE82BBC26CD00DAE8E2 /* Extensions.swift in Sources */,
 				DE844FD92BB9519800DAE8E2 /* ThemeStore.swift in Sources */,
 				DE844FCD2BB854CD00DAE8E2 /* MemoryGame.swift in Sources */,
 				DE844FE02BB9CC1800DAE8E2 /* ThemeEditor.swift in Sources */,
