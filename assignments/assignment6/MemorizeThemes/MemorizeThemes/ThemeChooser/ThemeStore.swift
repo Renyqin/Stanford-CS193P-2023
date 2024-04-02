@@ -18,15 +18,15 @@ struct ThemeStore {
         Theme(name: "Halloween", emojis:"👻🎃🕷️😈💀🕸️🧙🙀👹😱☠️🍭".shuffled(),
               nPairs: nPairs, color: RGBA(color: .orange)),
         Theme(name: "Vehicle", emojis:"🚗🚖⛴️🚁🚚🚂🚀🚌🚑🚔🚜🚄".shuffled(),
-              nPairs: nPairs, color: RGBA(color: .blue))
-//        Theme(name: "Drink", emojis:"🥂🍵🥛🧋🍻🍾🧃🫖🍶🥃🥤🍹".shuffled(),
-//                                     nPairs: nPairs, Color: .pink),
-//        Theme(name: "Food", emojis:"🍔🌽🌯🌭🌮🍕🍗🍟🥐🍛🍱🍲".shuffled(),
-//                     nPairs: nPairs, Color: .yellow),
-//        Theme(name: "Wearing", emojis:"🥼👠👙👗👢🧥👖🥾🧣👔👚🩳".shuffled(),
-//                     nPairs: nPairs, Color: .green),
-//        Theme(name: "Sports", emojis:"🚲🏀🏸⛹️‍♀️🎾🏓🏑⚾️🏈🏊‍♀️🏄🏿‍♀️🚵".shuffled(),
-//                     nPairs: nPairs, Color: .red)
+              nPairs: nPairs, color: RGBA(color: .blue)),
+        Theme(name: "Drink", emojis:"🥂🍵🥛🧋🍻🍾🧃🫖🍶🥃🥤🍹".shuffled(),
+              nPairs: nPairs, color: RGBA(color: .pink)),
+        Theme(name: "Food", emojis:"🍔🌽🌯🌭🌮🍕🍗🍟🥐🍛🍱🍲".shuffled(),
+              nPairs: nPairs, color: RGBA(color: .yellow)),
+        Theme(name: "Wearing", emojis:"🥼👠👙👗👢🧥👖🥾🧣👔👚🩳".shuffled(),
+              nPairs: nPairs, color: RGBA(color: .green)),
+        Theme(name: "Sports", emojis:"🚲🏀🏸⛹️‍♀️🎾🏓🏑⚾️🏈🏊‍♀️🏄🏿‍♀️🚵".shuffled(),
+              nPairs: nPairs, color: RGBA(color: .red))
     ]}
     
 
