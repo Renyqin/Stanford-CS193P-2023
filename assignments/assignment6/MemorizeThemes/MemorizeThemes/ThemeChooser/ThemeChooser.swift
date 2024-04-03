@@ -43,7 +43,10 @@ class ThemeChooser: ObservableObject {
     }
     
     init() {
-        self.themes = ThemeStore.builtins
+        if themes.isEmpty {
+            self.themes = ThemeStore.builtins
+        }
+        
     }
     
     func printThemes(){
