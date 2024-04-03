@@ -10,9 +10,9 @@ import SwiftUI
 struct ThemeChooserView: View {
     typealias Theme = ThemeStore.Theme
     @ObservedObject var themeChooser: ThemeChooser
-    @State private var showEmptyTheme = false
+    @State private var showCursorTheme = false
     @State private var selectedTheme: Theme?
-    @State private var emptyTheme = Theme(name: "", emojis: "🍶🍲", nPairs: 2, color: RGBA(color: .black))
+//    @State private var emptyTheme = Theme(name: "", emojis: "🍶🍲", nPairs: 2, color: RGBA(color: .black))
     
     var body: some View {
         
@@ -36,8 +36,11 @@ struct ThemeChooserView: View {
                 .onDelete{ indexSet in
                     withAnimation {
                         themeChooser.themes.remove(atOffsets: indexSet)
+                        themeChooser.printThemes()
+                        
                     }
                 }
+                .deleteDisabled(themeChooser.themes.count <= 1)
             }
             .sheet(item: $selectedTheme, content: { item in
                 if let index = themeChooser.themes.firstIndex(where: { $0.id == item.id }){
@@ -45,14 +48,15 @@ struct ThemeChooserView: View {
                 }
             })
 
-            .navigationDestination(isPresented: $showEmptyTheme){
-                ThemeEditor(theme: $emptyTheme)
+            .navigationDestination(isPresented: $showCursorTheme){
+                ThemeEditor(theme: $themeChooser.themes.last!)
             }
             .navigationTitle("Themes")
             .toolbar {
                 Button {
-                    showEmptyTheme = true
-                    themeChooser.append(theme: emptyTheme)
+                    themeChooser.append()
+                    showCursorTheme = true
+                   
                 } label: {
                     Image(systemName: "plus")
                 }

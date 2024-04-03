@@ -55,6 +55,9 @@ struct ThemeEditor: View {
                             if theme.emojis.count > 2 {
                                 theme.emojis.remove(emoji.first!)
                                 emojisToAdd.remove(emoji.first!)
+                                if theme.nPairs > theme.emojis.count{
+                                    theme.nPairs = theme.emojis.count
+                                }
                             }
                         }
                     }

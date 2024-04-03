@@ -46,8 +46,14 @@ class ThemeChooser: ObservableObject {
         self.themes = ThemeStore.builtins
     }
     
-    func append(theme: Theme){
-        themes.append(theme)
+    func printThemes(){
+        print("------------------")
+        print(themes)
+    }
+    
+    
+    func append(name: String = "", emoji: String = "🍶🍲"){
+        themes.append(Theme(name: name, emojis: emoji, nPairs: 2, color: RGBA(color: .mint)))
     }
     
     
@@ -56,9 +62,6 @@ class ThemeChooser: ObservableObject {
         if let index = themes.firstIndex(where: { $0.id == themeId}) {
             return themes[index]
         }
-        print("-----------------------------")
-        print(themeId)
-        print(themes)
         return themes[0]
         
     }

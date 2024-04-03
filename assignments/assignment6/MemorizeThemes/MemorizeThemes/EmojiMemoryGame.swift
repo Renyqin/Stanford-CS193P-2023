@@ -10,7 +10,7 @@ import SwiftUI
 class EmojiMemoryGame: ObservableObject {
     @Published private var model: MemoryGame<String>
     private(set) var theme: ThemeStore.Theme
-    private static var numberOfPairOfCards = 8
+//    private static var numberOfPairOfCards = 8
     var themeChooser: ThemeChooser
     
     init(themeID: UUID, themeChooser: ThemeChooser){
@@ -22,7 +22,7 @@ class EmojiMemoryGame: ObservableObject {
     
     private static func createMemoryGame(theme: ThemeStore.Theme) -> MemoryGame<String> {
    
-        return MemoryGame(numberOfPairsOfCards:  numberOfPairOfCards) { pairIndex in
+        return MemoryGame(numberOfPairsOfCards:  theme.nPairs) { pairIndex in
             if theme.emojis.count > pairIndex {
                 return String(theme.emojis[theme.emojis.index(theme.emojis.startIndex, offsetBy: pairIndex)])
             } else {
